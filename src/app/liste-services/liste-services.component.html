@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+        <app-update-service [services]="updatedService" (ServiceUpdated)="ServiceUpdated($event)"[ajout]="ajout"></app-update-service>
+    <table class="table table-striped">
+    <thead>
+    <tr> <th>Id</th><th>Service Name</th> </tr>
+    </thead>
+    <tbody *ngFor="let ser of services">
+    <tr>
+    <td>{{ser.idSer}}</td>
+    <td>{{ser.nomSer}}</td>
+    <td><a class="btn btn-success" (click)="update(ser)">Modify</a></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>

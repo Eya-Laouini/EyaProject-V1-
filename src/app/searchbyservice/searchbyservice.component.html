@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <label>Services </label>
+        <select class="form-control form-control-lg" id="idSer" name="idSer"
+        [(ngModel)]="IdService" (change)="onChange()">
+        <option *ngFor="let ser of services" value="{{ser.idSer}}">{{ser.nomSer}}</option>
+        </select>
+        </div>
+
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped">
+    <tr> <th>Id</th><th>Name</th> <th>Genre</th> <th>Birthdate</th><th>Service</th> </tr>
+    <tbody *ngFor="let patient of patients">
+    <tr >
+    <td>{{patient.idPatient}}</td>
+    <td>{{patient.nomPatient}}</td>
+    <td>{{patient.genderPatient}}</td>
+    <td>{{patient.birthDate | date:'dd/MM/yyyy'}}</td> 
+    <td>{{patient.service.nomSer}}</td>
+    <td><a class="btn btn-success" [routerLink]="['/updatePatient',patient.idPatient]">Modify</a></td> 
+     <td><a class="btn btn-danger" (click)="supprimerPatient(patient)">Delete</a></td> 
+    
+    </tr>
+    </tbody>
+    
+    </table>
+    </div>
+    </div>
+    </div>  
+
